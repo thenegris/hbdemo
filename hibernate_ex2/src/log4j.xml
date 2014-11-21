@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "/WRKDIRP/LIBDIRP/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="Debug-Info-Warn" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="D://logs/kit-info.log"/>
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} [%-5p] [%-30.30C{1}]: %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG"/>
+			<param name="LevelMax" value="WARN"/>
+		</filter>
+	</appender>
+	<appender name="Error-Fatal" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="D://logs/kit-error.log"/>
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} [%-5p] [%-30.30C{1}]: %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR"/>
+			<param name="LevelMax" value="FATAL"/>
+		</filter>
+	</appender>
+		<appender name="FwksD-I-W" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="D://logs/kit-info.log"/>
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} [%-5p] [%-30.30C{1}]: %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="DEBUG"/>
+			<param name="LevelMax" value="WARN"/>
+		</filter>
+	</appender>
+	<appender name="ErrorTransacciones" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="D://logs/transactionError.log"/>
+		<param name="DatePattern" value="'.'yyyyMMdd'.log'"/>
+		<param name="Append" value="true"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} [%-5p] [%C{1}]: %m%n"/>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="ERROR"/>
+			<param name="LevelMax" value="FATAL"/>
+		</filter>
+	</appender>
+
+	
+	<logger name="org.hibernate.cfg.Environment">
+		<level value="all"></level>
+		<appender-ref ref="ErrorTransacciones"/>
+	</logger>
+	
+	<!-- <root>
+		<appender-ref ref="Debug-Info-Warn"/>
+		<appender-ref ref="Error-Fatal"/>
+	</root> -->
+</log4j:configuration>
