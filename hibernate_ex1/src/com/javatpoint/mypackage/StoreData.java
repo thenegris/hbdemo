@@ -33,7 +33,7 @@ package com.javatpoint.mypackage;
 	    t.commit();//transaction is commited  
 	    session.close();  
 	      
-	    System.out.println("successfully saved");  
+	    System.out.println("successfully saved");    
 	      
 	}  
 	
